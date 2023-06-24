@@ -1,0 +1,18 @@
+button {
+    float: left;
+}
+
+#count {
+    font-weight: bold;
+}
+
+#count::after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+#logo {
+    width: 200px;
+    height: 200px;
+}
