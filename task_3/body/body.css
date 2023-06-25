@@ -1,0 +1,14 @@
+button {
+    float: left;
+}
+
+#count {
+    font-weight: bold;
+    font-style: normal;
+}
+
+#count::after {
+    content: '';
+    display: table;
+    clear: both;
+}
