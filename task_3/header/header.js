@@ -1,5 +1,4 @@
 const $ = require('jquery');
-// const image = require('../assets/holberton-logo.jpg');
 require('./header.css');
 
 $(() => {
