@@ -1,5 +1,4 @@
 const $ = require('jquery');
-const _ = require('lodash');
 require('./body.css');
 
 $(() => {
@@ -7,9 +6,13 @@ $(() => {
   $('body').append('<button>Click here to get started</button>');
   $('body').append(`<p id='count'></p>`);
 
-  $('button').on('click', _.debounce(updateCounter));
-
-  function updateCounter() {
-    $('p#count').text(`${++count} clicks on the button`);
-  }
+  import('lodash/debounce')
+    .then(({ default: debounce }) => {
+      $('button').on('click', debounce(updateCounter));
+      
+      function updateCounter() {
+        $('p#count').text(`${++count} clicks on the button`);
+      }
+    })
+    .catch((err) => console.log(err.message));
 });
