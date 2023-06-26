@@ -2,11 +2,24 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-  mode: "development",
+  mode: "production",
   entry: {
-    header: path.resolve(__dirname, 'header/header.js'),
-    body: path.resolve(__dirname, 'body/body.js'),
-    footer: path.resolve(__dirname, 'footer/footer.js'),
+    // header: path.resolve(__dirname, 'header/header.js'),
+    // body: path.resolve(__dirname, 'body/body.js'),
+    // footer: path.resolve(__dirname, 'footer/footer.js'),
+    header: {
+      import: path.resolve(__dirname, 'header/header.js'),
+      dependOn: 'shared',
+    },
+    body: {
+      import: path.resolve(__dirname, 'body/body.js'),
+      dependOn: 'shared',
+    },
+    footer: {
+      import: path.resolve(__dirname, 'footer/footer.js'),
+      dependOn: 'shared',
+    },
+    shared: 'jquery',
   },
   // devtool: 'inline-source-map',
   plugins: [new HtmlWebpackPlugin()],
@@ -16,6 +29,12 @@ module.exports = {
     clean: true,
     publicPath: '/',
     assetModuleFilename: 'assets/[hash][ext]',
+  },
+  optimization: {
+    runtimeChunk: 'single',
+    // splitChunks: {
+    //   chunks: 'all',
+    // },
   },
   devServer: {
     static: './public',
