@@ -21,7 +21,7 @@ module.exports = {
     },
     shared: 'jquery',
   },
-  devtool: 'source-map',
+  devtool: 'inline-source-map',
   plugins: [new HtmlWebpackPlugin()],
   output: {
     filename: '[name].bundle.js',
@@ -31,6 +31,7 @@ module.exports = {
     assetModuleFilename: 'assets/[hash][ext]',
   },
   optimization: {
+    minimize: true,
     runtimeChunk: 'single',
     // splitChunks: {
     //   chunks: 'all',
