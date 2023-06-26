@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const path = require('path');
 
 module.exports = {
-  mode: "production",
+  mode: "development",
   entry: {
     // header: path.resolve(__dirname, 'header/header.js'),
     // body: path.resolve(__dirname, 'body/body.js'),
@@ -21,7 +21,7 @@ module.exports = {
     },
     shared: 'jquery',
   },
-  // devtool: 'inline-source-map',
+  devtool: 'source-map',
   plugins: [new HtmlWebpackPlugin()],
   output: {
     filename: '[name].bundle.js',
