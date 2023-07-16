@@ -1,6 +1,6 @@
 import { React } from 'react';
 import './Notifications.css';
-// import close_png from './close.png'
+import { getLatestNotification } from './utils';
 
 export default function Notifications () {
   return (
@@ -23,6 +23,12 @@ export default function Notifications () {
       x
     </button>
     <p>Here is the list of Notifications</p>
+    <ul>
+      <li data-priority='default'>New course available</li>
+      <li data-priority='urgent'>New resume available</li>
+      <li data-priority='urgent'
+      dangerouslySetInnerHTML={{__html: getLatestNotification()}}></li>
+    </ul>
   </div>
   );
 }
