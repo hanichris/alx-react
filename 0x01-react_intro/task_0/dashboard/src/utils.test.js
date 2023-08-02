@@ -1,6 +1,6 @@
 import { describe, it } from 'mocha';
 import assert from 'assert';
-import { getFullYear, getFooterCopy, getLatestNotification } from './utils';
+import { getFullYear, getFooterCopy, getLatestNotification } from './utils.js';
 
 describe('Utils functionality', function () {
   describe('#getFullYear()', function () {
@@ -21,9 +21,13 @@ describe('Utils functionality', function () {
     it('should return the correct string if input is false', function () {
       assert.strictEqual(getFooterCopy(false), 'Holberton School main dashboard');
     });
+  });
 
-    // it('should raise an error if no argument is passed to the function', function () {
-    //   assert.
-    // });
+  describe('#getLatestNotification', function () {
+    it('should return a well formated string', function () {
+      const response = getLatestNotification();
+      assert.strictEqual('<strong>Urgent requirement</strong> - complete by EOD',
+      response);
+    });
   });
 });
